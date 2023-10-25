@@ -1,15 +1,33 @@
 #!/bin/bash
 
+#########################################################
+# About: List GitHub users with read access to a repository
+# Author: --------/------
+# Contact: 8843058750385
+#########################################################
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
-# GitHub username and personal access token
-USERNAME=$username
-TOKEN=$token
+# Function to display usage information
+function helper {
+    echo "Usage: $0 <GitHub Organization> <Repository Name>"
+    echo "Please provide the GitHub organization and repository name as arguments."
+    exit 1
+}
+
+# Check if the script is provided with the required number of arguments
+if [ "$#" -ne 2 ]; then
+    helper
+fi
+
+# GitHub username and personal access token (replace with your credentials)
+USERNAME="YourGitHubUsername"
+TOKEN="YourPersonalAccessToken"
 
 # User and Repository information
-REPO_OWNER=$1
-REPO_NAME=$2
+REPO_OWNER="$1"
+REPO_NAME="$2"
 
 # Function to make a GET request to the GitHub API
 function github_api_get {
